@@ -1,15 +1,15 @@
-<div class="page-width rich-text">
-  <div class="grid">
-    <div class="grid__item {% unless section.settings.full_width %} medium-up--two-thirds medium-up--push-one-sixth{% endunless %}">
-      {% if section.settings.section_title != blank %}
-        <div class="rich-text__heading--{{ section.settings.text_size }} text-center">
-          <h2 class="h3">{{ section.settings.section_title | escape }}</h2>
-        </div>
-      {% endif %}
-      {% if section.settings.text != blank %}
-        <div class="rich-text__text--{{ section.settings.text_size }} rte-setting text-center">{{ section.settings.text }}</div>
-      {% endif %}
-    </div>
+<hr class="medium-up--hide hr--clear hr--small">
+
+<div class="rich-text" data-section-id="{{ section.id }}" data-section-type="featured-content-section">
+  {% if section.settings.section_title != blank %}
+    <h2 class="small--text-center h1 rich-text__heading--{{ section.settings.text_size }}">{{ section.settings.section_title | escape }}</h2>
+  {% endif %}
+  <div class="rte rich-text__text--{{ section.settings.text_size }}">
+    {% if section.settings.text != blank %}
+      {{ section.settings.text }}
+    {% else %}
+      <p>{{ 'homepage.onboarding.no_content' | t }}</p>
+    {% endif %}
   </div>
 </div>
 
@@ -18,7 +18,7 @@
 {% schema %}
 {
   "name": {
-    "de": "Rich text",
+    "de": "Rich Text",
     "en": "Rich text",
     "es": "Texto enriquecido",
     "fr": "Texte enrichi",
@@ -26,21 +26,7 @@
     "ja": "リッチテキスト",
     "pt-BR": "Rich text"
   },
-  "class": "index-section",
   "settings": [
-    {
-      "type": "checkbox",
-      "id": "full_width",
-      "label": {
-        "de": "Breitbild-Display",
-        "en": "Wide display",
-        "es": "Pantalla ancha",
-        "fr": "Affichage large",
-        "it": "Visualizzazione ampia",
-        "ja": "ワイドディスプレイ",
-        "pt-BR": "Exibição ampla"
-      }
-    },
     {
       "type": "text",
       "id": "section_title",
@@ -48,13 +34,13 @@
         "de": "Titel",
         "en": "Heading",
         "es": "Título",
-        "fr": "En-tête",
+        "fr": "Titre",
         "it": "Heading",
         "ja": "見出し",
         "pt-BR": "Título"
       },
       "default": {
-        "de": "Reden Sie über Ihre Marke",
+        "de": "Über Ihre Marke sprechen",
         "en": "Talk about your brand",
         "es": "Habla de tu marca",
         "fr": "Parlez de votre marque",
@@ -80,9 +66,9 @@
         "en": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
         "es": "<p>Usa este texto para compartir información sobre tu marca con tus clientes. Describe un producto, comparte anuncios o recibe clientes en tu tienda.</p>",
         "fr": "<p>Utilisez ce texte pour partager des informations sur votre marque. Décrivez un produit, partagez des annonces, ou souhaitez la bienvenue à vos clients.</p>",
-        "it": "<p>Utilizza questo testo per condividere le informazioni sul tuo brand con i tuoi clienti. Descrivi un prodotto, condividi gli annunci o dai il benvenuto ai clienti nel tuo negozio.</p>",
+        "it": "<p>Utilizza questo testo per condividere le informazioni sul tuo brand con i clienti. Descrivi un prodotto, condividi gli annunci o dai il benvenuto ai clienti nel tuo negozio.</p>",
         "ja": "<p>このテキストを使用して、あなたのブランドに関する情報をお客様と共有します。商品を説明したり、告知の共有をしたり、あるいはあなたのストアのお客様を歓迎します。</p>",
-        "pt-BR": "<p>Use este texto para compartilhar informações sobre sua marca com seus clientes. Descreva um produto, compartilhe novidades ou receba os clientes em sua loja.</p>"
+        "pt-BR": "<p>Use este texto para compartilhar informações sobre sua marca com seus clientes. Descreva um produto, compartilhe anúncios ou receba os clientes em sua loja.</p>"
       }
     },
     {
@@ -105,7 +91,7 @@
             "en": "Small",
             "es": "Pequeño",
             "fr": "Petite",
-            "it": "Piccolo",
+            "it": "Small",
             "ja": "小",
             "pt-BR": "Pequeno"
           },
@@ -113,11 +99,11 @@
         },
         {
           "label": {
-            "de": "Mittel",
+            "de": "Mitte",
             "en": "Medium",
             "es": "Mediano",
             "fr": "Moyenne",
-            "it": "Medio",
+            "it": "Medium",
             "ja": "中",
             "pt-BR": "Médio"
           },
@@ -129,7 +115,7 @@
             "en": "Large",
             "es": "Grande",
             "fr": "Grande",
-            "it": "Grande",
+            "it": "Large",
             "ja": "大",
             "pt-BR": "Grande"
           },
@@ -141,7 +127,7 @@
   "presets": [
     {
       "name": {
-        "de": "Rich text",
+        "de": "Rich Text",
         "en": "Rich text",
         "es": "Texto enriquecido",
         "fr": "Texte enrichi",
