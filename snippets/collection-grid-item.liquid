@@ -9,11 +9,10 @@
 <div class="collection-grid-item">
   <a href="{% if collection.products == empty %}#{% else %}{{ collection.url }}{% endif %}" class="collection-grid-item__link">
     {% unless collection_image == blank %}
-      <div class="collection-grid-item__overlay box ratio-container lazyload js"
+      <div class="collection-grid-item__overlay lazyload"
         data-bgset="{% include 'bgset', image: collection_image %}"
         data-sizes="auto"
-        data-parent-fit="cover"
-        style="background-image: url('{{ collection_image | img_url: '300x300' }}')">
+        data-parent-fit="cover">
       </div>
       <noscript>
         <div class="collection-grid-item__overlay" style="background-image: url('{{ collection_image | img_url: '1024x1024' }}')"></div>
@@ -25,18 +24,17 @@
           {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
         </div>
       {% else %}
-        <div class="collection-grid-item__overlay" style="background-image: url('{{ collection_image | img_url: '1024x1024' }}')"></div>
+         <div class="collection-grid-item__overlay" style="background-image: url('{{ collection_image | img_url: '1024x1024' }}')"></div>
       {% endif %}
     {% endunless %}
-
     <div class="collection-grid-item__title-wrapper">
-      <div class="collection-grid-item__title h3">
+      <h3 class="h2 collection-grid-item__title">
         {% if collection.title == blank %}
           {{ 'homepage.onboarding.collection_title' | t }}
         {% else %}
           {{ collection.title }}
         {% endif %}
-      </div>
+      </h3>
     </div>
   </a>
 </div>
